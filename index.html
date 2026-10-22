@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UGC Ad Script Builder: Hook, Problem, Demo, CTA for AI UGC Videos</title>
+<meta name="description" content="Generate a 15-25 second UGC ad script (hook, problem, demo, proof, CTA) with on-screen text and an AI video shot note per line, for talking-head, demo or unboxing formats.">
+<style>
+:root{--bg:#111014;--card:#1d1b22;--fg:#eceef4;--mut:#a0a7b8;--acc:#ff9e7a}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg)}
+main{max-width:880px;margin:0 auto;padding:28px 16px 56px}h1{font-size:1.9rem;margin:.2em 0}h2{font-size:1.25rem;margin-top:2.2em}
+.sub{color:var(--mut)}.card{background:var(--card);border-radius:14px;padding:18px;margin:16px 0}
+label{display:block;font-weight:600;margin:12px 0 4px}input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #333a4d;background:rgba(0,0,0,.25);color:var(--fg);font:inherit}
+textarea{min-height:90px}button{margin-top:14px;padding:10px 18px;border:0;border-radius:8px;background:var(--acc);color:#0b0d13;font-weight:700;cursor:pointer}
+.out{white-space:pre-wrap;background:rgba(0,0,0,.3);border:1px solid #333a4d;border-radius:8px;padding:12px;min-height:60px}
+a{color:var(--acc)}ul,ol{padding-left:1.25em}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.item{background:var(--card);border-radius:12px;padding:14px;border:2px solid transparent}.item.hit{border-color:var(--acc)}.item.dim{opacity:.45}
+.tag{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:99px;background:rgba(255,255,255,.08);margin:2px 4px 0 0;color:var(--mut)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:620px){.row{grid-template-columns:1fr}}
+.chk label{font-weight:400;display:flex;gap:8px;align-items:flex-start}.chk input{width:auto;margin-top:6px}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #333a4d;padding:8px;text-align:left;vertical-align:top}
+footer{color:var(--mut);margin-top:44px;font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+<h1>UGC Ad Script Builder</h1>
+<p class="sub">UGC ads follow a simple shape: hook, problem, demo, proof, call to action. Fill four fields and get a timed script with a shot note per line for AI-generated creator videos.</p>
+<div class="card"><div class="row"><div><label for="pr">Product</label><input id="pr" placeholder="a foldable phone tripod"></div><div><label for="au">Audience</label><input id="au" placeholder="people filming solo travel videos"></div></div>
+<div class="row"><div><label for="pa">Pain point</label><input id="pa" placeholder="every video is shot at arm's length"></div><div><label for="fm">Format</label><select id="fm"><option value="talk">Talking head (selfie to camera)</option><option value="demo">Product demo (problem then fix)</option><option value="box">Hands-only unboxing</option></select></div></div>
+<button type="button" id="go">Write script</button><div class="out" id="out">Fill in and press Write script.</div></div>
+<h2>What makes UGC feel real</h2><ul><li>Natural home or street light, a slightly imperfect handheld frame.</li><li>One product, one benefit per ad. Test hooks, not whole new videos.</li><li>Keep on-screen text to five words per line.</li></ul>
+<h2>Guides and templates on Oraclip</h2>
+<ul>
+<li><a href="https://oraclip.com/skills/ugc-talking-head-ad">UGC talking-head ad skill</a></li>
+<li><a href="https://oraclip.com/skills/ugc-product-demo">UGC product demo skill</a></li>
+<li><a href="https://oraclip.com/skills/ugc-unboxing-clip">UGC unboxing clip skill</a></li>
+<li><a href="https://oraclip.com/skills/social-image-ad">Social image ad skill</a></li>
+<li><a href="https://oraclip.com/skills/youtube-thumbnail">YouTube thumbnail skill</a></li>
+<li><a href="https://oraclip.com/skills/fashion-lookbook-video">Fashion lookbook video skill</a></li>
+<li><a href="https://oraclip.com/prompts/cafe-coffee-run-fashion-film-65110878">Example: cafe coffee run fashion film</a></li>
+<li><a href="https://oraclip.com/skills">All AI image &amp; video skills</a></li>
+<li><a href="https://oraclip.com/">Oraclip</a></li>
+</ul>
+<footer>An unofficial, free companion tool for <a href="https://oraclip.com/">oraclip.com</a>, the AI motion control and motion transfer video agent. Runs entirely in your browser; nothing is uploaded. Last updated October 2026.</footer>
+</main>
+<script>
+var F={talk:'selfie framing, creator speaks to the phone camera',demo:'mid shot, hands and product visible',box:'top-down, hands only'};document.getElementById('go').addEventListener('click',function(){function v(i,d){return document.getElementById(i).value.trim()||d}var p=v('pr','this product'),a=v('au','you'),x=v('pa','the usual problem'),f=F[document.getElementById('fm').value];
+document.getElementById('out').textContent=['0-3 s HOOK: "If you are '+a+', stop scrolling." ['+f+']','3-7 s PROBLEM: "'+x[0].toUpperCase()+x.slice(1)+'." [show the frustration]','7-15 s DEMO: "So I tried '+p+'." [one clear action showing it work]','15-20 s PROOF: "Here is the result." [before/after or close-up]','20-25 s CTA: "Link is below." [product held to camera]','Shot note for every line: natural light, slight handheld sway, keep the product exactly as in the photo.'].join('\n');});
+</script>
+</body>
+</html>
